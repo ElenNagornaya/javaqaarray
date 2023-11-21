@@ -53,6 +53,30 @@ public class StatsServiceTest {
 
     }
 
+    @Test
+    public void shouldFindUnderMiddleMonth() {
+        StatsService service = new StatsService();
+        long[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 11;
+        int actualMonth = service.underMiddleSales(month);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+
+    }
+
+    @Test
+    public void shouldFindOverMiddleMonth() {
+        StatsService service = new StatsService();
+        long[] month = {8, 15, 13, 15, 17, 20, 19, 20, 7, 14, 14, 18};
+
+        int expectedMonth = 12;
+        int actualMonth = service.overMiddleSales(month);
+
+        Assertions.assertEquals(expectedMonth, actualMonth);
+
+    }
+
 
 }
 

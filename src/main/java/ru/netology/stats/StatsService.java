@@ -28,7 +28,6 @@ public class StatsService {
         int amount = 0;
         for (long sale : sales) {
             amount += sale;
-
         }
 
         return amount;
@@ -36,12 +35,32 @@ public class StatsService {
 
     public int middleSales(long[] sales) {
         return sumSales(sales) / sales.length;
-
     }
 
+    public int underMiddleSales(long[] sales) {
+        int month = 0;
+        int middle = middleSales(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] < middle) {
+                month = i;
+            }
+        }
 
+        return month + 1;
+    }
+
+    public int overMiddleSales(long[] sales) {
+        int month = 0;
+        int middle = middleSales(sales);
+        for (int i = 0; i < sales.length; i++) {
+            if (sales[i] > middle) {
+                month = i;
+            }
+        }
+
+        return month + 1;
+    }
 }
-
 
 
 
